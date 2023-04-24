@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/chadyorgason/Documents/Winter 2023/repos/FinalExam/FinalExam/FinalExam.csproj": {}
+    "/Users/chadyorgason/Documents/Winter 2023/repos/FinalMaybe/final_chadly08/FinalExam/FinalExam/FinalExam.csproj": {}
   },
   "projects": {
-    "/Users/chadyorgason/Documents/Winter 2023/repos/FinalExam/FinalExam/FinalExam.csproj": {
+    "/Users/chadyorgason/Documents/Winter 2023/repos/FinalMaybe/final_chadly08/FinalExam/FinalExam/FinalExam.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/chadyorgason/Documents/Winter 2023/repos/FinalExam/FinalExam/FinalExam.csproj",
+        "projectUniqueName": "/Users/chadyorgason/Documents/Winter 2023/repos/FinalMaybe/final_chadly08/FinalExam/FinalExam/FinalExam.csproj",
         "projectName": "FinalExam",
-        "projectPath": "/Users/chadyorgason/Documents/Winter 2023/repos/FinalExam/FinalExam/FinalExam.csproj",
+        "projectPath": "/Users/chadyorgason/Documents/Winter 2023/repos/FinalMaybe/final_chadly08/FinalExam/FinalExam/FinalExam.csproj",
         "packagesPath": "/Users/chadyorgason/.nuget/packages/",
-        "outputPath": "/Users/chadyorgason/Documents/Winter 2023/repos/FinalExam/FinalExam/obj/",
+        "outputPath": "/Users/chadyorgason/Documents/Winter 2023/repos/FinalMaybe/final_chadly08/FinalExam/FinalExam/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/chadyorgason/.nuget/NuGet/NuGet.Config"
