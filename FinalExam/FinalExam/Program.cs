@@ -12,6 +12,8 @@ builder.Services.AddDbContext<CandyshopContext>(options =>
     options.UseSqlite(connectionString);
 });
 
+builder.Services.AddScoped<ICandyRepository, EFCandyRepository>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

@@ -7,11 +7,11 @@ namespace FinalExam.Controllers;
 
 public class HomeController : Controller
 {
-    private CandyshopContext csContext { get; set; }
+    private ICandyRepository _repo { get; set; }
 
-    public HomeController(CandyshopContext someName)
+    public HomeController(ICandyRepository someName)
     {
-        csContext = someName;
+        _repo = someName;
     }
 
     public IActionResult Index()
@@ -22,7 +22,7 @@ public class HomeController : Controller
     [HttpGet]
     public IActionResult Add()
     {
-        ViewBag.cats = csContext.Categories.ToList();
+        ViewBag.cats = _repo.Categories.ToList();
         return View(new Candy());
     }
 
@@ -31,20 +31,20 @@ public class HomeController : Controller
     {
         if (ModelState.IsValid)
         {
-            csContext.Add(can);
-            csContext.SaveChanges();
+            _repo.AddIt(can);
+            //_repo.SaveChanges();
             return View("Confirmation", can);
         }
         else
         {
-            ViewBag.cats = csContext.Categories.ToList();
+            ViewBag.cats = _repo.Categories.ToList();
             return View();
         }
     }
 
     public IActionResult CList()
     {
-        var candies = csContext.Candies
+        var candies = _repo.Candies
             .Include(x => x.Category)
             //.Where(x => x.Title == "Michael")
             .OrderBy(x => x.Title)
@@ -56,8 +56,8 @@ public class HomeController : Controller
     [HttpGet]
     public IActionResult Edit(int candyid)
     {
-        ViewBag.cats = csContext.Categories.ToList();
-        var candy = csContext.Candies.Single(x => x.CandyId == candyid);
+        ViewBag.cats = _repo.Categories.ToList();
+        var candy = _repo.Candies.Single(x => x.CandyId == candyid);
         return View("Add", candy);
     }
 
@@ -66,14 +66,14 @@ public class HomeController : Controller
     {
         if (ModelState.IsValid)
         {
-            csContext.Update(duh);
-            csContext.SaveChanges();
+            _repo.UpdateIt(duh);
+            //_repo.SaveChanges();
             return RedirectToAction("CList");
         }
         else
         {
-            ViewBag.cats = csContext.Categories.ToList();
-            var candy = csContext.Candies.Single(x => x.CandyId == duh.CandyId);
+            ViewBag.cats = _repo.Categories.ToList();
+            var candy = _repo.Candies.Single(x => x.CandyId == duh.CandyId);
             return View("Add", candy);
         }
     }
@@ -81,15 +81,15 @@ public class HomeController : Controller
     [HttpGet]
     public IActionResult Delete(int candyid)
     {
-        var candy = csContext.Candies.Single(x => x.CandyId == candyid);
+        var candy = _repo.Candies.Single(x => x.CandyId == candyid);
         return View(candy);
     }
 
     [HttpPost]
     public IActionResult Delete(Candy can)
     {
-        csContext.Candies.Remove(can);
-        csContext.SaveChanges();
+        _repo.DeleteIt(can);
+        //_repo.SaveChanges();
         return RedirectToAction("CList");
     }
 

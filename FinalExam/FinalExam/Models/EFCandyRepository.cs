@@ -12,7 +12,32 @@ namespace FinalExam.Models
             csContext = someName;
         }
 
-        public IQueryable<Candy> Candies => throw new NotImplementedException();
+        public IQueryable<Candy> Candies => csContext.Candies;
+
+        public IQueryable<Category> Categories => csContext.Categories;
+
+        //public void SaveChanges()
+        //{
+        //    throw new NotImplementedException();
+        //}
+
+        public void AddIt(Candy candy)
+        {
+            csContext.Add(candy);
+            csContext.SaveChanges();
+        }
+
+        public void UpdateIt(Candy candy)
+        {
+            csContext.Update(candy);
+            csContext.SaveChanges();
+        }
+
+        public void DeleteIt(Candy candy)
+        {
+            csContext.Remove(candy);
+            csContext.SaveChanges();
+        }
     }
 }
 
